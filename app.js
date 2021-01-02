@@ -1,6 +1,6 @@
 export default (express, bodyParser, createReadStream, crypto, http) => {
     const app = express()
-    const moduleUrl = import.meta.url.substring(8)
+    const moduleUrl = import.meta.url.substring(7)
     app.use(bodyParser.urlencoded({ extended: true }))
 
     app.get('/login/', (req, res) => {
@@ -38,7 +38,7 @@ export default (express, bodyParser, createReadStream, crypto, http) => {
         })
     })
 
-    app.all('/', (req, res) => {
+    app.all('/*', (req, res) => {
         res.end('itmo287662')
     })
 
